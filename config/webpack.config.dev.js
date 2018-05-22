@@ -211,6 +211,14 @@ module.exports = {
     ],
   },
   plugins: [
+      new webpack.DefinePlugin({
+          'process.env': {
+              'NODE_ENV': JSON.stringify('production')
+          }
+      }),
+      new webpack.optimize.DedupePlugin(), //dedupe similar code
+      new webpack.optimize.UglifyJsPlugin(), //minify everything
+      new webpack.optimize.AggressiveMergingPlugin(),//Merge chunks
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

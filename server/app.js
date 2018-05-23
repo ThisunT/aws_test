@@ -16,4 +16,9 @@ app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 
+app.get('/hello', (req, res) => {
+    res.write("Hello");
+});
+
+
 module.exports = app;
